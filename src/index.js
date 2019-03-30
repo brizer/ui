@@ -1,5 +1,7 @@
+//图标，插入svglink到html
 import VueIcons from './icons'
 import VTooltip from 'v-tooltip'
+//监听dom尺寸变化
 import VueResize from 'vue-resize'
 import 'focus-visible'
 
@@ -15,6 +17,7 @@ export { default as DisableScroll } from './mixins/DisableScroll'
 export { generateHtmlIcon } from './icons'
 
 // Require all the components that start with 'BaseXXX.vue'
+//通过require.context拿到所有组件
 const components = require.context('./components', true, /[a-z0-9]+\.vue$/)
 
 export function install (Vue, options = {}) {
@@ -33,6 +36,7 @@ export function install (Vue, options = {}) {
   // To extract the component name
   const nameReg = /([a-z0-9]+)\./i
   // Registration
+  //统一注册到vue上
   components.keys().forEach(key => {
     const name = key.match(nameReg)[1]
     Vue.component(name, components(key))

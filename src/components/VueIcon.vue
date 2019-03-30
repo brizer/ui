@@ -1,4 +1,5 @@
 <script>
+// svg图标组件
 export default {
   name: 'VueIcon',
 
